@@ -1,0 +1,10 @@
+# Raw capture and dataset files are large; download them from the CIC site instead.
+*.pcap
+*.pcapng
+*.csv
+data/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/

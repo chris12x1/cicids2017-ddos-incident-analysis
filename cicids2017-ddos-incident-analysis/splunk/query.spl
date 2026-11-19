@@ -1,0 +1,7 @@
+index=main source="*Afternoon-DDos.pcap_ISCX.csv"
+| eval destination_ip=coalesce('Destination IP', Destination_IP),
+       destination_port=coalesce('Destination Port', Destination_Port)
+| search Label="DDoS" destination_ip="192.168.10.50" destination_port=80 Protocol=6
+| stats count AS flows BY Timestamp
+| sort 0 - flows
+| addcoltotals labelfield=Timestamp label="TOTAL"
